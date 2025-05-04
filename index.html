@@ -39,12 +39,21 @@
 </head>
 <body>
   <div class="logo" style="flex-direction: column; gap: 20px;">
-    <img src="logo.png" alt="Moonlight Project Logo" class="logo-img" />
+    <img src="img/logo.png" alt="Moonlight Project Logo" class="logo-img" />
   </div>
-  
 <div class="center">
   <button id="mainButton" class="glow-button">กดตรงนี้เพื่อเป็นสมาชิก</button>
 </div>
+
+<div class="top-right">
+  <button id="memberButton" class="glow-button secondary">ดูสมาชิกในโปรเจกต์</button>
+</div>
+
+<script>
+  document.getElementById("memberButton").addEventListener("click", function () {
+    window.location.href = "member.html";
+  });
+</script>
 
 <div id="popup" class="popup">
   <div class="popup-background"></div>
@@ -59,6 +68,7 @@
 
 <script src="script.js"></script>
 <script>
+
 
 
 //+
