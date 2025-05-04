@@ -1,0 +1,217 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #000000, #2c003e, #000000, #4b0082);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .glow-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 150, 136, 0.6);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+    padding: 25px 55px;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    animation: glowPulse 3s ease-in-out infinite;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  
+  @keyframes glowPulse {
+    0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 50px rgba(0, 255, 255, 1); }
+    100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+  }
+  
+  .glow-button:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+  }
+  
+  .popup-content {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    animation: popupFade 0.5s ease forwards;
+  }
+  
+  @keyframes popupFade {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  #closePopup {
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  #closePopup:hover {
+    background: #ff4081;
+    color: black;
+    transform: scale(1.1);
+  }
+  
+  .sparkle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+.top-right {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(124, 0, 155, 0.774);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    animation: breathe 3s ease-in-out infinite;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .character-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+  }
+  
+  .character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .character-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
+  
+  .glow-dot {
+    width: 12px;
+    height: 12px;
+    background: #ff66cc;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff66cc, 0 0 16px #ff66cc;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+  }
+  
+  .character img {
+    width: 22vw;
+    height: auto;
+  }
+  
+  
+  
+  .project-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px #9d4edd;
+    background: linear-gradient(90deg, #ff99cc, #cc66ff, #66ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 5s ease-in-out infinite;
+    margin-bottom: 30px;
+  }
+  
+  @keyframes titleGlow {
+    0%, 100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px #9d4edd;
+    }
+    50% {
+      text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 30px #ff66cc;
+    }
+  }
+  
+  
+  .back-button:hover {
+    background-color: #000000;
+  }
+  
+  
+  .sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 2.5s infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.4); }
+    50% { opacity: 1; transform: scale(2); }
+  }
+  
+  @media (max-width: 768px) {
+    .glow-button {
+      font-size: 1.8rem;
+      padding: 18px 40px;
+    }
+  
+    .popup-content {
+      padding: 25px;
+    }
+  }
