@@ -2,95 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moonlight Project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="moon.css" />
 </head>
 <body>
 
+  <div class="stars"></div>
+  <div class="twinkling"></div>
 
-<div id="particles-js"></div>
 
-<style>
-  .logo-img {
-    width: 600px;
-    height: 400px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    animation: moveDown 1.5s ease-out forwards;
-    opacity: 0;
-    transform: translateX(-500px);
-  }
+  <section class="section">
+    <div class="logo">
+      <img src="img/logo.png" alt="Moonlight Project" class="logo-img" />
+      <span class="logo-text">Moonlight Project</span>
+    </div>
 
-@keyframes moveDown {
-  0% {
-    transform: translate(-50%, -100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-}
-</style>
-</head>
-<body>
-  <div class="logo" style="flex-direction: column; gap: 20px;">
-    <img src="img/logo.png" alt="Moonlight Project Logo" class="logo-img" />
-  </div>
-<div class="center">
-  <button id="mainButton" class="glow-button">กดตรงนี้เพื่อเป็นสมาชิก</button>
-</div>
+    <div class="center">
+      <button id="mainButton" class="glow-button">กดตรงนี้เพื่อเป็นสมาชิก</button>
+    </div>
+  </section>
 
-<div class="top-right">
-  <button id="memberButton" class="glow-button secondary">ดูสมาชิกในโปรเจกต์</button>
-</div>
+  <section class="section characters">
+    <h2 class="section-title">ผู้ดูแลโปรเจกต์</h2>
+    <div class="character-wrapper">
+      <div class="character-card">
+        <img src="img/Selena Mikalis.png" alt="Selena Mikalis" class="character-img" />
+        <div class="character-info">
+          <h3>Selena Mikalis</h3>
+          <p>หัวหน้าฝ่ายวินัยและจัดการ เป็นที่ปรึกษาและผู้ดำเนินการฝ่ายบริหาร</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="img/Jay Smith.png" alt="Jay Smith" class="character-img" />
+        <div class="character-info">
+          <h3>Jay Smith</h3>
+          <p>ผู้ออกแบบระบบโลกและเทคโนโลยีเบื้องหลังโครงการ Moonlight</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  document.getElementById("memberButton").addEventListener("click", function () {
-    window.location.href = "member.html";
-  });
-</script>
 
 <div id="popup" class="popup">
-  <div class="popup-background"></div>
-  <div class="popup-content">
-    <h2>กำลังเข้าร่วม!</h2>
-    <p>กรุณารอสักครู่...</p>
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+      <h2>กำลังเข้าสู่เป็นสมาชิก</h2>
+      <p>โปรดรอซักครู่...</p>
+      <div class="loading">
+      </div>
+    </div>
   </div>
-</div>
+  
 
-<div class="sparkle-container"></div>
-
-
-<script src="script.js"></script>
-<script>
-
-
-
-//+
-const sparkleContainer = document.querySelector('.sparkle-container');
-function createSparkle() {
-  const sparkle = document.createElement('div');
-  sparkle.classList.add('sparkle');
-  sparkle.style.top = Math.random() * 100 + '%';
-  sparkle.style.left = Math.random() * 100 + '%';
-  sparkle.style.animationDelay = (Math.random() * 3) + 's';
-  sparkleContainer.appendChild(sparkle);
-  setTimeout(() => {
-    sparkle.remove();
-    createSparkle();
-  }, 1000);
-}
-
-
-for (let i = 0; i < 40; i++) {
-  createSparkle();
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
