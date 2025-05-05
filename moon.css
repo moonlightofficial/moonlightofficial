@@ -1,217 +1,256 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(-45deg, #000000, #2c003e, #000000, #4b0082);
-    background-size: 400% 400%;
-    animation: gradientShift 20s ease infinite;
-    font-family: 'Inter', sans-serif;
-    color: white;
-    text-align: center;
-  }
-  
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .glow-button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(0, 150, 136, 0.6);
-    border-radius: 50px;
-    backdrop-filter: blur(12px);
-    padding: 25px 55px;
-    font-size: 2.5rem;
-    color: white;
-    cursor: pointer;
-    animation: glowPulse 3s ease-in-out infinite;
-    transition: 0.3s;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  }
-  
-  @keyframes glowPulse {
-    0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
-    50% { box-shadow: 0 0 50px rgba(0, 255, 255, 1); }
-    100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
-  }
-  
-  .glow-button:hover {
-    transform: scale(1.15);
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: center;
-    z-index: 4;
-  }
-  
-  .popup-content {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 25px;
-    padding: 40px;
-    text-align: center;
-    color: white;
-    animation: popupFade 0.5s ease forwards;
-  }
-  
-  @keyframes popupFade {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  
-  #closePopup {
-    margin-top: 20px;
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 12px;
-    cursor: pointer;
-  }
-  
-  #closePopup:hover {
-    background: #ff4081;
-    color: black;
-    transform: scale(1.1);
-  }
-  
-  .sparkle-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
+body, h1, h2, h3, p, div, section, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-.top-right {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(124, 0, 155, 0.774);
-    border-radius: 5px;
-    backdrop-filter: blur(10px);
-    padding: 5px 10px;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-    animation: breathe 3s ease-in-out infinite;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+body {
+  background: linear-gradient(180deg, #0e0e1a 0%, #1a1a2e 100%);
+  color: #fff;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  font-size: 16px;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('star-field.png') repeat center center;
+  animation: rotateStars 100s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateStars {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('twinkling-stars.png') repeat center center;
+  animation: twinkle 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+
+.section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  z-index: 2;
+  position: relative;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #b388eb;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+
+.glow-button {
+  background: linear-gradient(145deg, #5e4b8b, #7c5dc3);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(179, 136, 235, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  background: #9c7dfc;
+  box-shadow: 0 0 20px rgba(179, 136, 235, 0.8);
+  transform: scale(1.05);
+}
+
+
+.section-title {
+  font-size: 2rem;
+  color: #b388eb;
+  margin-bottom: 40px;
+}
+
+.character-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.character-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(179, 136, 235, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+}
+
+.character-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.character-info h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.character-info p {
+  font-size: 0.95rem;
+  color: #d1c4e9;
+  line-height: 1.4;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.popup.show {
+  display: flex;
+}
+
+
+.popup-content {
+  background: rgba(30, 0, 50, 0.7);
+  padding: 2rem;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.loading .dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: blink 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
   }
-  
+  50% {
+    opacity: 1;
+  }
+}
+
+
+
+.glow-button.small {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  background: linear-gradient(145deg, #8a2be2, #4b0082);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px #bb86fc, 0 0 20px #8a2be2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.glow-button.small:hover {
+  background: linear-gradient(145deg, #9d50ff, #6e00b8);
+  box-shadow: 0 0 15px #c77dff, 0 0 25px #9d50ff;
+}
+
+
+@media (max-width: 768px) {
   .character-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    padding: 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-  }
-  
-  .character {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
-  
-  .character-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+
+  .logo-text {
+    font-size: 1.5rem;
   }
-  
-  .glow-dot {
-    width: 12px;
-    height: 12px;
-    background: #ff66cc;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #ff66cc, 0 0 16px #ff66cc;
-    animation: pulse 2s infinite;
+
+  .glow-button {
+    padding: 12px 20px;
+    font-size: 1rem;
   }
-  
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.4); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.7; }
+
+  .section-title {
+    font-size: 1.6rem;
   }
-  
-  .character img {
-    width: 22vw;
-    height: auto;
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 25px;
   }
-  
-  
-  
-  .project-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px #9d4edd;
-    background: linear-gradient(90deg, #ff99cc, #cc66ff, #66ccff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: titleGlow 5s ease-in-out infinite;
-    margin-bottom: 30px;
+
+  .popup-content h2 {
+    font-size: 1.4rem;
   }
-  
-  @keyframes titleGlow {
-    0%, 100% {
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px #9d4edd;
-    }
-    50% {
-      text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 30px #ff66cc;
-    }
+
+  .popup-content p {
+    font-size: 0.9rem;
   }
-  
-  
-  .back-button:hover {
-    background-color: #000000;
+
+  .glow-button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
   }
-  
-  
-  .sparkle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0;
-    animation: sparkle 2.5s infinite;
+
+  .logo-text {
+    font-size: 1.2rem;
   }
-  
-  @keyframes sparkle {
-    0%, 100% { opacity: 0; transform: scale(0.4); }
-    50% { opacity: 1; transform: scale(2); }
-  }
-  
-  @media (max-width: 768px) {
-    .glow-button {
-      font-size: 1.8rem;
-      padding: 18px 40px;
-    }
-  
-    .popup-content {
-      padding: 25px;
-    }
-  }
+}
